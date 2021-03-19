@@ -10,29 +10,26 @@ import ResponsiveIframe from './components/ResponsiveIframe';
 
 function App() {
   return (
-    <MuiThemeProvider theme={theme} >
-      
+    <MuiThemeProvider theme={theme}>
       <AppCssBaseline />
 
-      <Router>
-      <div>
-
-        {/* A <Switch> looks through its children <Route>s and
+      <Router basename={process.env.PUBLIC_URL}>
+        <div>
+          {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/dashboards" exact>
-            <Dashboards />
-          </Route>
-          <Route path="/dashboards/:DashName">
-            <ResponsiveIframe />
-          </Route>
-          <Route path="/">
-            <StartMenu />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-
+          <Switch>
+            <Route path="/dashboards" exact>
+              <Dashboards />
+            </Route>
+            <Route path="/dashboards/:DashName">
+              <ResponsiveIframe />
+            </Route>
+            <Route path="/">
+              <StartMenu />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </MuiThemeProvider>
   );
 }
