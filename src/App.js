@@ -13,18 +13,18 @@ function App() {
     <MuiThemeProvider theme={theme}>
       <AppCssBaseline />
 
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <div>
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/dashboards" exact>
+            <Route  path={process.env.PUBLIC_URL + "/dashboards"} exact>
               <Dashboards />
             </Route>
-            <Route path="/dashboards/:DashName">
+            <Route path={process.env.PUBLIC_URL + "/dashboards/:DashName"}>
               <ResponsiveIframe />
             </Route>
-            <Route path="/">
+            <Route path={process.env.PUBLIC_URL + "/"}>
               <StartMenu />
             </Route>
           </Switch>
